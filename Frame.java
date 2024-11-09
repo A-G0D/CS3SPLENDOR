@@ -1,15 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class Frame extends JFrame {
     private CardLayout cardLayout;
     private JPanel mainPanel;
     private NotifPanel notifPanel;
 
-    public Frame() {
+    public Frame() throws IOException {
         // Basic frame setup
         setTitle("Splendor Game");
-        setSize(800, 600);
+        setSize(1200, 675);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -32,9 +34,10 @@ public class Frame extends JFrame {
         // Initialize the notification panel
         notifPanel = new NotifPanel(this);
 
+        setUndecorated(true);
+
         // Show the start panel initially
-        cardLayout.show(mainPanel, "Start");
-    }
+        cardLayout.show(mainPanel, "Start");    }
 
     // Method to switch panels
     public void switchPanel(String panelName) {
@@ -42,7 +45,9 @@ public class Frame extends JFrame {
     }
 
     // Method to show the notification panel
-    public void showNotifPanel() {
-        notifPanel.showNotification();
+    public void showNotifPanel(String title, String message) {
+        notifPanel.setTitleFont(DataClass.TitleFont.deriveFont(24f));
+        notifPanel.setMessageFont(DataClass.TextFont.deriveFont(12f));
+        notifPanel.showNotification(title, message);
     }
 }

@@ -21,7 +21,7 @@ public class GamePanel extends JPanel {
         notifButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.showNotifPanel();
+                frame.showNotifPanel("Error", "Invalid blah");
             }
         });
 

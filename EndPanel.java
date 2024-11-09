@@ -1,33 +1,23 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.BufferedImage;
 
-public class EndPanel extends JPanel {
+public class EndPanel extends JPanel implements MouseListener{
+    public JButton reStartButton;
     public EndPanel(Frame frame) {
         // Set layout to null for absolute positioning
         setLayout(null);
 
         // Create and configure the restart button
-        JButton restartButton = createTransparentButton(50, 150, 100, 50);
-        restartButton.addActionListener(new ActionListener() {
+        reStartButton = createTransparentButton(1060, 10, 100, 100);
+        reStartButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.switchPanel("Start");
             }
         });
-
-        // Create and configure the notification button
-        JButton notifButton = createTransparentButton(200, 150, 100, 50);
-        notifButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.showNotifPanel();
-            }
-        });
-
-        // Add buttons to the panel
-        add(restartButton);
-        add(notifButton);
+        addMouseListener(this);
     }
 
     private JButton createTransparentButton(int x, int y, int width, int height) {
@@ -38,4 +28,33 @@ public class EndPanel extends JPanel {
         button.setBounds(x, y, width, height); // Set position and size
         return button;
     }
+
+    public void paint(Graphics g) {
+		super.paint(g);
+        BufferedImage img = DataClass.images.get("Misc").get("gameEndBg").get("00000");
+        //System.out.println(img.getWidth() + " " + img.getHeight());
+        g.drawImage(img,  0,  0,  getWidth(), (int) ((double) img.getHeight() / img.getWidth() * getWidth()), null);
+        add(reStartButton);
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        //System.out.println(e.getX() + ", " + e.getY());
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        //System.out.println(e.getX() + ", " + e.getY());
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        //System.out.println(e.getX() + ", " + e.getY());
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {}
+
+    @Override
+    public void mouseExited(MouseEvent e) {}
 }
