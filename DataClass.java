@@ -7,6 +7,7 @@ import java.io.*;
 public class DataClass {
     public static TreeMap<String, TreeMap<String, TreeMap<String, BufferedImage>>> images = new TreeMap<String, TreeMap<String, TreeMap<String, BufferedImage>>>();
     public static Font TitleFont, TextFont;
+    public static Token WhiteToken, BlueToken, GreenToken, RedToken, BlackToken, GoldToken;
     public DataClass() throws IOException, FontFormatException{
         String[] folders = new String[]{"Cards", "Misc", "Patrons", "Tokens"};
         for (String folder : folders){
@@ -39,5 +40,12 @@ public class DataClass {
         
         TitleFont = Font.createFont(Font.TRUETYPE_FONT, new File("TitleFont.ttf"));
         TextFont = Font.createFont(Font.TRUETYPE_FONT, new File("TextFont.ttf"));
+
+        WhiteToken = new Token(Token.TKN_COLOR.WHITE);
+        BlueToken = new Token(Token.TKN_COLOR.BLUE);
+        GreenToken = new Token(Token.TKN_COLOR.GREEN);
+        RedToken = new Token(Token.TKN_COLOR.RED);
+        BlackToken = new Token(Token.TKN_COLOR.BLACK);
+        GoldToken = new Token(Token.TKN_COLOR.GOLD);
     }
 }
