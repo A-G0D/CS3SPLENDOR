@@ -17,6 +17,21 @@ public class EndPanel extends JPanel implements MouseListener{
                 frame.switchPanel("Start");
             }
         });
+        JButton quitbutton = createTransparentButton(0, 0, 100, 50);
+        quitbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.showNotifPanel("How to Play:", "• Collect gem tokens to buy development cards.\r\n" + 
+                                        "• Development cards grant points and bonuses.\r\n" + 
+                                        "• Bonuses help attract nobles for points.\r\n" + 
+                                        "• On your turn, choose to:\r\n" + 
+                                        "\t◦ Take 3 different gems.\r\n" + 
+                                        "\t◦ Take 2 of the same gem (if available).\r\n" + 
+                                        "\t◦ Buy a card.\r\n" + 
+                                        "• First to 15 points wins.");
+            }
+        });
+        add(quitbutton);
         addMouseListener(this);
     }
 
@@ -35,6 +50,9 @@ public class EndPanel extends JPanel implements MouseListener{
         //System.out.println(img.getWidth() + " " + img.getHeight());
         g.drawImage(img,  0,  0,  getWidth(), (int) ((double) img.getHeight() / img.getWidth() * getWidth()), null);
         add(reStartButton);
+        g.setColor(Color.WHITE);
+        g.setFont(DataClass.TitleFont.deriveFont(24f));
+        g.drawString("?", 25, 35);
     }
 
     @Override

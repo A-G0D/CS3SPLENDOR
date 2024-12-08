@@ -9,7 +9,6 @@ public class SplendorRunner {
         DataClass DC = new DataClass();
         Frame frame = new Frame();
         frame.setVisible(true);
-        //Rudimentary approach to make the program busy and keep the new frame on the screen before making the loading frame disappear
         frame.setVisible(true);
         frame.setVisible(true);
         frame.setVisible(true);

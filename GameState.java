@@ -9,11 +9,10 @@ public class GameState {
     private ArrayList<Card> deck1;
     private ArrayList<Card> deck2;
     private ArrayList<Card> deck3;
-    private Card[] vis1 = new Card[4];
-    private Card[] vis2 = new Card[4];
-    private Card[] vis3 = new Card[4];
-    private ArrayList<Patron> nobles;
-    private Patron[] visNobles = new Patron[5];
+    private Card[] vis1 = new Card[4]; //visible 4 cards level 1
+    private Card[] vis2 = new Card[4]; //visible 4 cards level 2
+    private Card[] vis3 = new Card[4]; //visible 4 cards level 3
+    private Patron[] visNobles = new Patron[5]; //visible 5 patrons
     public GameState() {
         players = new ArrayList<Player>();
         turn = 0;
@@ -28,7 +27,6 @@ public class GameState {
         deck1 = new ArrayList<Card>();
         deck2 = new ArrayList<Card>();
         deck3 = new ArrayList<Card>();
-        nobles = new ArrayList<Patron>();
     }
     public void addPlayer(Player player) {
         players.add(player);
@@ -44,6 +42,7 @@ public class GameState {
     }
     public void nextTurn() {
         turn = (turn + 1) % players.size();
+        //if islast turn then turn on end game
     }
     public boolean isLastRound() {
         for (Player i : players) {
@@ -96,17 +95,7 @@ public class GameState {
             }
         }
     }
-    public ArrayList<Patron> getNobles() {
-        return nobles;
-    }
     public Patron[] getVisNobles() {
         return visNobles;
-    }
-    public void drawNobles() {
-        for (int i = 0; i < 5; i++) {
-            if (visNobles[i] == null) {
-                visNobles[i] = nobles.remove(0);
-            }
-        }
     }
 }

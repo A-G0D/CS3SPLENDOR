@@ -73,7 +73,13 @@ public class Player {
     public void removePoints(int points) {
         this.points -= points;
     }
-    public int getPoints() {
+    public int getPoints() { //update and return
+        for (Card card : cards) {
+            points += card.getPoints();
+        }
+        for (Patron patron : patrons) {
+            points += patron.getPoints();
+        }
         return points;
     }
     public void addReserved(Card card) {
@@ -91,14 +97,15 @@ public class Player {
         if (removeToken(card.getCost())) {
             if (card.isReserved()) {
                 removeReserved(card);
+            } else {
+                addCard(card);
             }
-            addCard(card);
             return true;
         }
         return false;
     }
-    public boolean canBuy(Card card) {
-        return removeToken(card.getCost());
+    public boolean canBuy(Card card) { 
+        return false;  //work later
     }
     public boolean reserve(Card card) {
         if (reserved.size() < 3) {

@@ -12,6 +12,15 @@ public class Card {
         this.isBought = false;
         this.isReserved = false;
     }
+    public Card() {
+        cost.put(DataClass.WhiteToken, 0);
+        cost.put(DataClass.BlueToken, 0);
+        cost.put(DataClass.RedToken, 0);
+        cost.put(DataClass.GreenToken, 0);
+        cost.put(DataClass.BlackToken, 0);
+        color = Token.TKN_COLOR.WHITE;
+        points = 0;
+    }
     public HashMap<Token, Integer> getCost() {
         return cost;
     }

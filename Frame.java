@@ -6,8 +6,10 @@ public class Frame extends JFrame {
     private CardLayout cardLayout;
     private JPanel mainPanel;
     private NotifPanel notifPanel;
+    public GameState gameState = new GameState();
 
     public Frame() throws IOException {
+
         // Basic frame setup
         setTitle("Splendor Game");
         setSize(1200, 675);
@@ -36,7 +38,8 @@ public class Frame extends JFrame {
         setUndecorated(true);
 
         // Show the start panel initially
-        cardLayout.show(mainPanel, "Start");    }
+        cardLayout.show(mainPanel, "Start");    
+    }
 
     // Method to switch panels
     public void switchPanel(String panelName) {
