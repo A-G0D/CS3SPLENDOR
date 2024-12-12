@@ -12,7 +12,7 @@ public class Frame extends JFrame {
 
         // Basic frame setup
         setTitle("Splendor Game");
-        setSize(1200, 675);
+        setSize(1440, 810);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 

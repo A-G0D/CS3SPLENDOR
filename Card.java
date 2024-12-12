@@ -5,12 +5,14 @@ public class Card {
     private HashMap<Token, Integer> cost;
     private int points;
     private boolean isReserved, isBought;
-    public Card(Token.TKN_COLOR color, HashMap<Token, Integer> cost, int points) {
+    int id;
+    public Card(Token.TKN_COLOR color, HashMap<Token, Integer> cost, int points, int newid) {
         this.color = color;
         this.cost = cost;
         this.points = points;
         this.isBought = false;
         this.isReserved = false;
+        id = newid;
     }
     public Card() {
         cost.put(DataClass.WhiteToken, 0);
@@ -20,6 +22,7 @@ public class Card {
         cost.put(DataClass.BlackToken, 0);
         color = Token.TKN_COLOR.WHITE;
         points = 0;
+        id = 5;
     }
     public HashMap<Token, Integer> getCost() {
         return cost;

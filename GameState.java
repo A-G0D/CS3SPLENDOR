@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class GameState {
@@ -9,10 +10,10 @@ public class GameState {
     private ArrayList<Card> deck1;
     private ArrayList<Card> deck2;
     private ArrayList<Card> deck3;
-    private Card[] vis1 = new Card[4]; //visible 4 cards level 1
-    private Card[] vis2 = new Card[4]; //visible 4 cards level 2
-    private Card[] vis3 = new Card[4]; //visible 4 cards level 3
-    private Patron[] visNobles = new Patron[5]; //visible 5 patrons
+    Card[] vis1 = new Card[4]; //visible 4 cards level 1
+    Card[] vis2 = new Card[4]; //visible 4 cards level 2
+    Card[] vis3 = new Card[4]; //visible 4 cards level 3
+    Patron[] visNobles = new Patron[5]; //visible 5 patrons
     public GameState() {
         players = new ArrayList<Player>();
         turn = 0;
@@ -27,6 +28,7 @@ public class GameState {
         deck1 = new ArrayList<Card>();
         deck2 = new ArrayList<Card>();
         deck3 = new ArrayList<Card>();
+        setupCards();
     }
     public void addPlayer(Player player) {
         players.add(player);
@@ -97,5 +99,783 @@ public class GameState {
     }
     public Patron[] getVisNobles() {
         return visNobles;
+    }
+
+    public void setupCards() {
+        int id = 5;
+        deck1.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 2);
+                put(DataClass.GreenToken, 2);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 1);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 2);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 2);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 3);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 1);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 4);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            1,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 1);
+                put(DataClass.BlackToken, 1);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken, 2);
+                put(DataClass.RedToken, 1);
+                put(DataClass.BlackToken, 1);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 2);
+                put(DataClass.BlackToken, 1);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 3);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.RED,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 2);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 2);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.RED,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 2);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 2);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.RED,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 1);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 1);
+                put(DataClass.BlackToken, 2);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.RED,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 4);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            1,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.RED,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 1);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 1);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.RED,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 2);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 1);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.RED,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 2);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.RED,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 3);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 2);
+                put(DataClass.BlueToken, 2);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 1);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 2);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 2);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 3);
+                put(DataClass.BlackToken, 1);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 4);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            1,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 1);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 1);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 1);
+                put(DataClass.BlueToken, 2);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 1);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 2);
+                put(DataClass.RedToken, 1);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 3);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 2);
+                put(DataClass.BlackToken, 2);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 2);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 2);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 1);
+                put(DataClass.BlueToken, 3);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken,0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 4);
+            }},
+            1,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 1);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken,1);
+                put(DataClass.RedToken, 1);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 1);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken,0);
+                put(DataClass.RedToken, 1);
+                put(DataClass.BlackToken, 2);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 2);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken,0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken,0);
+                put(DataClass.RedToken, 3);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLUE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 1);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken,2);
+                put(DataClass.RedToken, 2);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLUE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 2);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 2);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLUE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken, 3);
+                put(DataClass.RedToken, 1);
+                put(DataClass.BlackToken, 0);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLUE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 4);
+                put(DataClass.BlackToken, 0);
+            }},
+            1,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLUE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 1);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 1);
+                put(DataClass.BlackToken, 1);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLUE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 1);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 2);
+                put(DataClass.BlackToken, 1);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLUE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 1);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 2);
+            }},
+            0,
+            id++
+        ));
+        
+        deck1.add(new Card( 
+            Token.TKN_COLOR.BLUE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 3);
+            }},
+            0,
+            id++
+        ));
+        
+
+
+
+
+
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 2);
+                put(DataClass.BlueToken, 3);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 2);
+            }},
+            1,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 4);
+                put(DataClass.BlueToken, 2);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 1);
+            }},
+            2,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 3);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 2);
+                put(DataClass.RedToken, 3);
+                put(DataClass.BlackToken, 0);
+            }},
+            1,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 6);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            3,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 5);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            2,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.GREEN,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 5);
+                put(DataClass.GreenToken, 3);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            2,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken,6);
+            }},
+            3,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 5);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken,0);
+            }},
+            2,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 5);
+                put(DataClass.RedToken, 3);
+                put(DataClass.BlackToken,0);
+            }},
+            2,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 1);
+                put(DataClass.GreenToken, 4);
+                put(DataClass.RedToken, 2);
+                put(DataClass.BlackToken,0);
+            }},
+            2,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 3);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 3);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken,2);
+            }},
+            1,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.BLACK,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 3);
+                put(DataClass.BlueToken, 2);
+                put(DataClass.GreenToken, 2);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            1,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 1);
+                put(DataClass.RedToken, 4);
+                put(DataClass.BlackToken, 2);
+            }},
+            2,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 2);
+                put(DataClass.BlueToken, 3);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 3);
+                put(DataClass.BlackToken, 0);
+            }},
+            2,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 3);
+                put(DataClass.RedToken, 2);
+                put(DataClass.BlackToken, 2);
+            }},
+            1,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 6);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 0);
+                put(DataClass.BlackToken, 0);
+            }},
+            3,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 5);
+                put(DataClass.BlackToken, 0);
+            }},
+            2,
+            id++
+        ));
+        
+        deck2.add(new Card( 
+            Token.TKN_COLOR.WHITE,
+            new HashMap<>() {{
+                put(DataClass.WhiteToken, 0);
+                put(DataClass.BlueToken, 0);
+                put(DataClass.GreenToken, 0);
+                put(DataClass.RedToken, 5);
+                put(DataClass.BlackToken, 3);
+            }},
+            2,
+            id++
+        ));
+        
+
+
+
+        Collections.shuffle(deck1);
+        Collections.shuffle(deck2);
+        Collections.shuffle(deck3);
+        drawC1();
+        drawC1();
+        drawC1();
+        drawC1();
+        drawC2();
+        drawC2();
+        drawC2();
+        drawC2();
     }
 }

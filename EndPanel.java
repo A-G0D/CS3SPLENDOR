@@ -10,14 +10,14 @@ public class EndPanel extends JPanel implements MouseListener{
         setLayout(null);
 
         // Create and configure the restart button
-        reStartButton = createTransparentButton(1060, 10, 100, 100);
+        reStartButton = createTransparentButton((int) (1075 * 1440.0/1200), (int) (10 * 1440.0/1200), (int) (100 * 1440.0/1200), (int) (100 * 1440.0/1200));
         reStartButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.switchPanel("Start");
             }
         });
-        JButton quitbutton = createTransparentButton(0, 0, 100, 50);
+        JButton quitbutton = createTransparentButton(0, 0, (int) (100 * 1440.0/1200), (int) (50 * 1440.0/1200));
         quitbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -46,13 +46,13 @@ public class EndPanel extends JPanel implements MouseListener{
 
     public void paint(Graphics g) {
 		super.paint(g);
-        BufferedImage img = DataClass.images.get("Misc").get("gameEndBg").get("00000");
+        BufferedImage img = DataClass.images.get("gameEndBg");
         //System.out.println(img.getWidth() + " " + img.getHeight());
         g.drawImage(img,  0,  0,  getWidth(), (int) ((double) img.getHeight() / img.getWidth() * getWidth()), null);
         add(reStartButton);
         g.setColor(Color.WHITE);
         g.setFont(DataClass.TitleFont.deriveFont(24f));
-        g.drawString("?", 25, 35);
+        g.drawString("?", (int) (25 * 1440.0/1200), (int) (35 * 1440.0/1200));
     }
 
     @Override

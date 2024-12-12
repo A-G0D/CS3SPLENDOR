@@ -7,7 +7,7 @@ import java.io.IOException;
 public class LoadingPanel extends JPanel {
     private BufferedImage loadImg;
     public LoadingPanel() throws IOException {
-        loadImg = ImageIO.read(getClass().getResource("Resources\\Misc\\gameLoadBg\\00000\\image.png"));
+        loadImg = ImageIO.read(LoadingPanel.class.getResource("Resources/Misc/gameLoadBg/00000/image.png"));
     }
     public void paint(Graphics g) {
 		super.paint(g);

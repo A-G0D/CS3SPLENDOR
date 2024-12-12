@@ -10,7 +10,7 @@ public class StartPanel extends JPanel implements MouseListener{
         setLayout(null);
 
         
-        startButton = createTransparentButton(500, 350, 200, 200);
+        startButton = createTransparentButton((int) (500 * 1440.0/1200), (int) (335 * 1440.0/1200), (int) (200 * 1440.0/1200), (int) (200 * 1440.0/1200));
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -19,7 +19,7 @@ public class StartPanel extends JPanel implements MouseListener{
         });
 
         
-        notifButton = createTransparentButton(1050, 550, 150, 150);
+        notifButton = createTransparentButton((int) (1050 * 1440.0/1200), (int) (550 * 1440.0/1200), (int) (150 * 1440.0/1200), (int) (150 * 1440.0/1200));
         notifButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -47,7 +47,7 @@ public class StartPanel extends JPanel implements MouseListener{
 
     public void paint(Graphics g) {
 		super.paint(g);
-        BufferedImage img = DataClass.images.get("Misc").get("gameStartBg").get("00000");
+        BufferedImage img = DataClass.images.get("gameStartBg");
         
 //System.out.println(img.getWidth() + " " + img.getHeight());
         g.drawImage(img,  0,  0,  getWidth(), (int) ((double) img.getHeight() / img.getWidth() * getWidth()), null);
@@ -58,7 +58,7 @@ public class StartPanel extends JPanel implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         
-//System.out.println(e.getX() + ", " + e.getY());
+        System.out.println(e.getX() + ", " + e.getY());
     }
 
     @Override

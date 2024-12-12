@@ -97,6 +97,7 @@ public class Player {
         if (removeToken(card.getCost())) {
             if (card.isReserved()) {
                 removeReserved(card);
+                addCard(card);
             } else {
                 addCard(card);
             }
@@ -105,7 +106,12 @@ public class Player {
         return false;
     }
     public boolean canBuy(Card card) { 
-        return false;  //work later
+        for (Token token : card.getCost().keySet()) {
+            if (token != DataClass.GoldToken && tokens.get(token) < card.getCost().get(token)) {
+                return false;
+            }
+        }
+        return true;
     }
     public boolean reserve(Card card) {
         if (reserved.size() < 3) {
